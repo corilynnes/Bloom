@@ -1,0 +1,20 @@
+<div class="container">
+    
+    <div id="plant-form" class="col-md-3">
+        <h3>Get In Loser, We're going Plant Shopping</h3>
+
+        <form (ngSubmit)="onAddPlant()" #f="ngForm">
+
+            <div class="plant-data" ngModelGroup="plantData" #plantData="ngModelGroup">
+                <input type="text" placeholder="COMMON NAME" ngModel name="commonName" required><br>
+
+
+                <p *ngIf="!plantData.valid && plantData.touched">Plant information is incomplete</p>
+                <button class="btn btn-primary" [disabled]="!f.valid" type="submit">NEED</button>
+
+            </div>
+        </form>
+        <p> hey</p>
+    <p *ngFor="let plants of userWishlist">{{plants}}</p>
+   
+</div>

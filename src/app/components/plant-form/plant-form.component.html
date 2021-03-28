@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div id="plant-form" class="col-md-3">
+            <h3>Let's Plant Some Roots</h3>
+
+            <form (ngSubmit)="onAddPlant()" #f="ngForm">
+
+                <div class="plant-data" ngModelGroup="plantData" #plantData="ngModelGroup">
+                    <input type="text" placeholder="COMMON NAME" ngModel name="commonName" required><br>
+
+                    <input type="text" placeholder="SCIENTIFIC NAME" ngModel name="scientificName" required><br>
+
+                    <select id="light" ngModel required name="light">
+                        <option value="" disabled selected>LIGHT LEVEL</option>
+                        <option value="direct">DIRECT</option>
+                        <option value="brightIndirect">BRIGHT INDIRECT</option>
+                        <option value="mediumLight">MEDIUM LIGHT</option>
+                        <option value="lowLight">LOWLIGHT</option>
+                    </select><br>
+
+                    <!------>
+                    <div class='radio-box'>
+
+                        <div class="radio" required>
+                            <label>
+                                <input type="radio" id="dry" name="water" value="dry">DRY ICON
+                            </label><br>
+                            <label>
+                                <input type="radio" id="damp" name="water" value="damp">DAMP ICON
+                            </label><br>
+                            <label>
+                                <input type="radio" id="wet" name="water" value="wet">WET ICON
+                            </label>
+                        </div>
+
+                    </div>
+                    <!------>
+
+                    <label for="start">Last Watered:</label><br>
+
+                    <input type="date" id="start" name="waterDate" value="YYY-MM-DD" min="2020-01-01"
+                        max="" required>
+
+                    <input type="text" placeholder="NOTES" ngModel name="notes" ><br>
+
+
+                    <p *ngIf="!plantData.valid && plantData.touched">Plant information is incomplete</p>
+                    <button class="btn btn-primary" [disabled]="!f.valid" type="submit">ADD TO JUNGLE</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
