@@ -1,4 +1,7 @@
 # Bloom
+My application, Bloom, is my answer to the "problem" of having too many plants. I'm a huge house plant collector but as my collection grow, I quickly lose track of what plants I have and their individual care needs.
+Bloom lets users create their own account to keep track of the plants in their collect as well as each plants individual needs and any additional notes that may pertain to the plant.
+Users can add plants to their wishlist and keep track of the water schedules of their current plants.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
