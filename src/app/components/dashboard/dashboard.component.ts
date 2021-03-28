@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/Shared/services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public authService: AuthService,
+    public router: Router,
+    public ngZone: NgZone
+  ) { }
 
   ngOnInit(): void {
   }

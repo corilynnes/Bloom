@@ -66,6 +66,7 @@ export class AuthService {
   //     this.router.navigate(['verify-email-address']);
   //   })
   // }
+
   SendVerificationMail() {
     return this.afAuth.currentUser.then((user) => {
       return user.sendEmailVerification();
@@ -90,7 +91,7 @@ export class AuthService {
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
-  // // Sign in with Google
+  // Sign in with Google
   // GoogleAuth() {
   //   return this.AuthLogin(new auth.GoogleAuthProvider());
   // }
