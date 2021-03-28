@@ -16,18 +16,19 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from './Shared/services/auth.service';
+import { AuthGuard } from './Shared/guard/auth.guard';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
   { path: 'sign-in', component: SignInComponent },
   { path: 'register-user', component: SignUpComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
-  { path: 'plant-form', component: PlantFormComponent},
-  { path: 'plant-list', component: PlantListComponent },
-  { path: 'wishlist', component: WishlistComponent },
+  { path: 'plant-form', component: PlantFormComponent, canActivate: [AuthGuard]},
+  { path: 'plant-list', component: PlantListComponent, canActivate: [AuthGuard] },
+  { path: 'wishlist', component: WishlistComponent, canActivate: [AuthGuard] },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];
