@@ -17,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from './Shared/services/auth.service';
 import { AuthGuard } from './Shared/guard/auth.guard';
-
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
@@ -53,7 +53,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    
+    HttpClientModule, 
   ],
   exports: [RouterModule],
   providers: [AuthService],

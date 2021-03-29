@@ -52,8 +52,10 @@ export class AuthService {
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
+      
         this.SendVerificationMail();
         this.SetUserData(result.user);
+        
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -80,8 +82,7 @@ export class AuthService {
     return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
     .then(() => {
       window.alert('Password reset email sent, check your inbox.');
-    }).catch((error) => {
-      window.alert(error)
+    }).catch((error) => {      window.alert(error)
     })
   }
 
