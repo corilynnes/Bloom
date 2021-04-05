@@ -25,11 +25,10 @@ export class PlantFormComponent implements OnInit {
   
  
    }
- 
- 
+    
    onAddPlant() {
   //  this.userJungle = JSON.parse(localStorage.get("plants"));
-
+  const id = this.plantList.value.plantData.id;
      const commonName = this.plantList.value.plantData.commonName;
      const scientificName = this.plantList.value.plantData.scientificName;
      const light = this.plantList.value.plantData.light;
@@ -37,7 +36,7 @@ export class PlantFormComponent implements OnInit {
      
      const notes = this.plantList.value.plantData.notes;
      const waterDate = this.plantList.value.plantData.waterDate;
-     const newPlant = new PlantProfile(commonName, scientificName, light, water, notes, waterDate);
+     const newPlant = new PlantProfile(id, commonName, scientificName, light, water, notes, waterDate);
     this.userJungle.push(newPlant);
     this.dataStorageService.storePlant("plants", JSON.stringify(this.userJungle));
     this.plantList.reset();

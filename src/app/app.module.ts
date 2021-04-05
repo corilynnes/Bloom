@@ -18,6 +18,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from './Shared/services/auth.service';
 import { AuthGuard } from './Shared/guard/auth.guard';
 import {HttpClientModule} from '@angular/common/http';
+import firebase from "firebase/app";
+import { WishlistListComponent } from './components/wishlist-list/wishlist-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
@@ -43,18 +45,23 @@ const routes: Routes = [
     VerifyEmailComponent,
     PlantFormComponent,
     PlantListComponent,
-    WishlistComponent
+    WishlistComponent,
+    WishlistListComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
+   AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule, 
+    ReactiveFormsModule,
+    
   ],
+  
   exports: [RouterModule],
   providers: [AuthService],
   bootstrap: [AppComponent]

@@ -37,7 +37,9 @@
                 <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
                   alt="{{user.displayName}}">
                 <div class="media-body">
-                  <h1>Hello <strong>{{(user.displayName) ? user.displayName : 'User'}}!</strong></h1>
+                  <h1>Hello <strong>{{(user.displayName) ? user.displayName : 'None'}}!</strong></h1>
+                  <app-wishlist></app-wishlist>
+                  <app-wishlist-list></app-wishlist-list>
                   <app-plant-list></app-plant-list>
                  <app-plant-form></app-plant-form>
                  
