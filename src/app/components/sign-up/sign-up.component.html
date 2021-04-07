@@ -4,7 +4,7 @@
     <div class="authBlock">
       <h3>Sign Up</h3>
       <div class="formGroup">
-        <input type="username" class="formControl" placeholder="Username" #username required>
+        <input type="displayName" class="formControl" placeholder="Username" #displayName required>
       </div>
 
       <div class="formGroup">
@@ -17,7 +17,7 @@
 
       <div class="formGroup">
         <input type="button" class="btn btnPrimary" value="Sign Up"
-          (click)="authService.SignUp(userEmail.value, userPwd.value,username.value)">
+          (click)="authService.SignUp(userEmail.value, userPwd.value, displayName.value)">
           <!--  -->
       </div>
 
