@@ -19,7 +19,8 @@ export class WishlistService {
   getWishlist() {
     // valueChanges() function returns the observable containing the wishlist  details expect the id of the document.
     // snapshotChanges() function returns the observable containing the wishlist details and the id of the document (i.e. the metadata).
-    return this.fireStore.collection('wishlist').snapshotChanges();
+    const uid = JSON.parse(localStorage.getItem('user')).uid;
+     return this.fireStore.collection('users/'+ uid +'/wishlist').snapshotChanges();
  
     // We will use the id in order to perform the update or delete operation.
   }

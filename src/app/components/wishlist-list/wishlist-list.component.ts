@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { WishlistService } from 'src/app/Shared/services/wishlist.service';
 import { WishListPlant } from 'src/app/Shared/wishlist_plant.model';
@@ -11,20 +12,24 @@ import { WishListPlant } from 'src/app/Shared/wishlist_plant.model';
 })
 export class WishlistListComponent implements OnInit {
   deleteMessage: string;
+  uid: any;
   wishlist: WishListPlant[];
-  constructor(private service: WishlistService, private fireStore: AngularFirestore) { }
+  constructor( public afAuth: AngularFireAuth, private service: WishlistService, private fireStore: AngularFirestore) { }
  
   ngOnInit() {
+  
+    this.uid = JSON.parse(localStorage.getItem('user')).uid;
+    
     this.service.getWishlist().subscribe(response => {
       this.wishlist = response.map(document => {
         return {
           id: document.payload.doc.id,
           ...document.payload.doc.data() as {}    // Attention - Require typescript version >3 to work!!
         } as WishListPlant;
+        
       })
  
-      // // Sorting the student-list in ascending order.
-      // this.wishlist = this.wishlist.sort((obj1, obj2) => (obj1 as any).rollNo - (obj2 as any).rollNo);
+     
     });
   }
  
@@ -33,7 +38,7 @@ export class WishlistListComponent implements OnInit {
   // }
  
   onDelete(wishlistPlant: WishListPlant) {
-    this.fireStore.doc('wishlist/' + wishlistPlant.id).delete();
+    this.fireStore.doc('users/'+ this.uid +'/wishlist/' + wishlistPlant.id).delete();
     this.deleteMessage = 'Plant removed from wishlist!';
   }
 

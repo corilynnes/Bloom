@@ -54,10 +54,10 @@ export class AuthService {
       .then((credentials) => {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
-        credentials.user?.updateProfile({
-          displayName: displayName
-        });
-        const uid = credentials.user?.uid;
+        // credentials.user?.updateProfile({
+        //   displayName: displayName
+        // });
+        
         this.SendVerificationMail();
         this.SetUserData(credentials.user);
         credentials.user?.updateProfile({

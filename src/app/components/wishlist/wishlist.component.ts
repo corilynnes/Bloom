@@ -14,21 +14,23 @@ export class WishlistComponent implements OnInit {
   // @ViewChild('f', { static: false }) plantList: NgForm;
   // userWishlist = [];
   uid: any;
-  currentUser: any;
+ 
   message: string;
   constructor(
     public wlservice: WishlistService, 
     public authService: AuthService, 
     private fireStore: AngularFirestore,
     public afAuth: AngularFireAuth,
+    
   )
-    { }
+    { 
+      
+    }
  
   ngOnInit() {
     this.resetForm();
- this.afAuth.currentUser.then(user=>{
-  this.uid = user?.uid;
-  })
+    this.uid = JSON.parse(localStorage.getItem('user')).uid;
+   
   }
  
   resetForm(form?: NgForm) {
@@ -54,12 +56,12 @@ export class WishlistComponent implements OnInit {
     // Does the insert operation.
     if (form.value.id == null) {
       
-      this.fireStore.collection('users/${uid}/wishlist/').add(wishlistData);
+      this.fireStore.collection('users/'+ this.uid +'/wishlist').add(wishlistData);
       this.message = 'You wishlist is successfully saved!';
     } else {
       // Does the update operation for the selected plant.
       // The 'wishlistData' object has the updated details of the plant.
-      this.fireStore.doc('users/${uid}/wishlist/' + form.value.id).update(wishlistData);
+      this.fireStore.doc('users/'+ this.uid +'/wishlist' + form.value.id).update(wishlistData);
       this.message = 'Your wishlist successfully updated!';
     }
  
