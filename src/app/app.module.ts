@@ -20,6 +20,8 @@ import { AuthGuard } from './Shared/guard/auth.guard';
 import {HttpClientModule} from '@angular/common/http';
 import firebase from "firebase/app";
 import { WishlistListComponent } from './components/wishlist-list/wishlist-list.component';
+import { HeaderComponent } from './components/header/header.component';
+import { DropdownDirective } from './Shared/Directives/dropdown.directive';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
@@ -31,6 +33,7 @@ const routes: Routes = [
   { path: 'plant-form', component: PlantFormComponent, canActivate: [AuthGuard]},
   { path: 'plant-list', component: PlantListComponent, canActivate: [AuthGuard] },
   { path: 'wishlist', component: WishlistComponent, canActivate: [AuthGuard] },
+  { path: 'wishlist-list', component: WishlistListComponent, canActivate: [AuthGuard] },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];
@@ -47,7 +50,8 @@ const routes: Routes = [
     PlantListComponent,
     WishlistComponent,
     WishlistListComponent,
-    
+    HeaderComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,

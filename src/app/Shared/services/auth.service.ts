@@ -51,16 +51,18 @@ export class AuthService {
   SignUp(email, password, displayName) {
     return this.afAuth.createUserWithEmailAndPassword(email, password)
 
-      .then((result) => {
+      .then((credentials) => {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
-        result.user?.updateProfile({
+        credentials.user?.updateProfile({
           displayName: displayName
         });
-        
+        const uid = credentials.user?.uid;
         this.SendVerificationMail();
-        this.SetUserData(result.user);
-
+        this.SetUserData(credentials.user);
+        credentials.user?.updateProfile({
+          displayName: displayName
+        });
 
       }).catch((error) => {
         window.alert(error.message)
@@ -107,11 +109,11 @@ export class AuthService {
   // Auth logic to run auth providers
   AuthLogin(provider) {
     return this.afAuth.signInWithPopup(provider)
-      .then((result) => {
+      .then((credentials) => {
         this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
         })
-        this.SetUserData(result.user);
+        this.SetUserData(credentials.user);
       }).catch((error) => {
         window.alert(error)
       })

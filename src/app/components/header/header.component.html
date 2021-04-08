@@ -1,0 +1,26 @@
+<nav class="navbar navbar-default">
+   <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" (click)="collapsed = !collapsed">
+          <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
+        </button>
+        <p class="navbar-brand">BLOOM</p>
+      </div>
+      <div class="navbar-collapse navbar-right" [class.collapse]="collapsed" (window:resize)="collapsed = true">
+        <ul class="nav navbar-nav">
+            <li class="dropdown" appDropdown>
+                <a class="dropdown-toggle" role="button"> &#9776;</a>
+                <ul class="dropdown-menu">
+                    <li><a [routerLink]="['/dashboard']">Plants</a></li>
+                    <li><a [routerLink]="['/wishlist']">Wishlist</a></li>
+                    <!-- <li><a [routerLink]="['']">Thirsty Boys</a></li>
+                    <li><a [routerLink]="['/library']">Nursery</a></li> -->
+                    <li> <a class="nav-link" (click)="authService.SignOut()">
+                        <i class="fas fa-sign-out-alt"></i>Log out
+                      </a></li>
+                </ul>
+            </li>
+        </ul>
+       </div>
+   </div> 
+</nav>

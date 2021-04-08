@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/Shared/services/auth.service';
@@ -12,18 +13,29 @@ import { WishlistService } from 'src/app/Shared/services/wishlist.service';
 export class WishlistComponent implements OnInit {
   // @ViewChild('f', { static: false }) plantList: NgForm;
   // userWishlist = [];
+  uid: any;
+  currentUser: any;
   message: string;
-  constructor(public service: WishlistService, private fireStore: AngularFirestore) { }
+  constructor(
+    public wlservice: WishlistService, 
+    public authService: AuthService, 
+    private fireStore: AngularFirestore,
+    public afAuth: AngularFireAuth,
+  )
+    { }
  
   ngOnInit() {
     this.resetForm();
+ this.afAuth.currentUser.then(user=>{
+  this.uid = user?.uid;
+  })
   }
  
   resetForm(form?: NgForm) {
     if (form != null) {
       form.resetForm();
     }
-    this.service.formData = {
+    this.wlservice.formData = {
       id: null,
      name:''
     }
@@ -41,12 +53,13 @@ export class WishlistComponent implements OnInit {
  
     // Does the insert operation.
     if (form.value.id == null) {
-      this.fireStore.collection('wishlist').add(wishlistData);
+      
+      this.fireStore.collection('users/${uid}/wishlist/').add(wishlistData);
       this.message = 'You wishlist is successfully saved!';
     } else {
       // Does the update operation for the selected plant.
       // The 'wishlistData' object has the updated details of the plant.
-      this.fireStore.doc('wishlist/' + form.value.id).update(wishlistData);
+      this.fireStore.doc('users/${uid}/wishlist/' + form.value.id).update(wishlistData);
       this.message = 'Your wishlist successfully updated!';
     }
  

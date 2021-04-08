@@ -26,14 +26,15 @@
 
         </table>
     </div> -->
+    <app-header></app-header>
     <h1 class="">Get In Loser, <br>We're going Plant Shopping</h1>
 <div class="col-6 col-md-4">
  
 <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="wlservice.formData.id">
 
     <div class="form-group">
-        <input name="name" #name="ngModel" [(ngModel)]="service.formData.name" class="form-control"
+        <input name="name" #name="ngModel" [(ngModel)]="wlservice.formData.name" class="form-control"
             placeholder="Plant Name" required>
         <div *ngIf="name.invalid && name.touched" class="validation-error">Plant name is required.</div>
     </div>
@@ -48,3 +49,4 @@
 <div class="error" *ngIf="message">
     <h5 class="text-success">{{ message }}</h5>
 </div>
+<app-wishlist-list ></app-wishlist-list>
