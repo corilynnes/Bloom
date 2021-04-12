@@ -51,7 +51,38 @@ export class PlantFormComponent implements OnInit {
       waterDate: ''
     }
   }
-    //  onAddPlant() {
+
+
+    onSubmit(form: NgForm) {
+      // Reset the message value.
+      
+      this.message = '';
+
+      // Making the copy of the form and assigning it to the wishlistData.
+      let plantlistData = Object.assign({}, form.value);
+    
+      // To avoid messing up the document id and just update the other details of the wishlist. We will remove the 'property' from the plantlist data.
+      delete plantlistData.id;
+
+      // Does the insert operation.
+      if (form.value.id == null) {
+
+        this.fireStore.collection('users/' + this.uid + '/plantlist').add(plantlistData);
+        this.message = 'Your plant list is successfully saved!';
+      } else {
+        // Does the update operation for the selected plant.
+        // The 'plantlistData' object has the updated details of the plant.
+        this.fireStore.doc('users/' + this.uid + '/plantlist' + form.value.id).update(plantlistData);
+        this.message = 'Your plant list successfully updated!';
+      }
+
+      // Reset the form if the operation is successful.
+      this.resetForm(form);
+    }
+  }
+
+
+      //  onAddPlant() {
 
     // const id = this.plantList.value.plantData.id;
     //    const commonName = this.plantList.value.plantData.commonName;
@@ -72,35 +103,4 @@ export class PlantFormComponent implements OnInit {
     //  }
 
 
-
-    onSubmit(form: NgForm) {
-      // Reset the message value.
-      this.message = '';
-
-      // Making the copy of the form and assigning it to the wishlistData.
-      let plantlistData = Object.assign({}, form.value);
-
-      // To avoid messing up the document id and just update the other details of the wishlist. We will remove the 'property' from the wishlist data.
-      delete plantlistData.id;
-
-      // Does the insert operation.
-      if (form.value.id == null) {
-
-        this.fireStore.collection('users/' + this.uid + '/plantlist').add(plantlistData);
-        this.message = 'Your plant list is successfully saved!';
-      } else {
-        // Does the update operation for the selected plant.
-        // The 'wishlistData' object has the updated details of the plant.
-        this.fireStore.doc('users/' + this.uid + '/plantlist' + form.value.id).update(plantlistData);
-        this.message = 'Your plant list successfully updated!';
-      }
-
-      // Reset the form if the operation is successful.
-      this.resetForm(form);
-    }
-
-
-
-
-  }
 

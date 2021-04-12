@@ -25,8 +25,6 @@ export class PlantListComponent implements OnInit {
         } as PlantProfile;
       })
  
-      // Sorting the student-list in ascending order.
-      this.plantList = this.plantList.sort((obj1, obj2) => (obj1 as any).rollNo - (obj2 as any).rollNo);
     });
   }
  
@@ -35,7 +33,7 @@ export class PlantListComponent implements OnInit {
   }
  
   onDelete(plant: PlantProfile) {
-    this.fireStore.doc('users/'+ this.uid +'/wishlist/' +plant.id).delete();
+    this.fireStore.doc('users/'+ this.uid +'/plantList/' +plant.id).delete();
     this.deleteMessage = plant.commonName + ' has been removed from your list';
   }
 

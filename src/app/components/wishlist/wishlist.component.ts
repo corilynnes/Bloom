@@ -49,7 +49,7 @@ export class WishlistComponent implements OnInit {
  
     // Making the copy of the form and assigning it to the wishlistData.
     let wishlistData = Object.assign({}, form.value);
- 
+
     // To avoid messing up the document id and just update the other details of the wishlist. We will remove the 'property' from the wishlist data.
     delete wishlistData.id;
  

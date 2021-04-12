@@ -9,7 +9,7 @@
         <th>LAST WATER</th>
         <th>NOTES</th>
 
-        
+        <th>EDIT</th>
         <th>Remove</th>
     </thead>
     <tbody align="center">
@@ -22,7 +22,7 @@
             
             <td>{{plant.waterDate}}</td>
             <td>{{plant.notes}}</td>
-            <!-- <td><button class="btn text-warning" (click)="onEdit(plant)"><i class="fa fa-edit" title="Edit"></i>Opps</button></ td> -->
+            <td><button class="btn text-warning" (click)="onEdit(plant)"><i class="fa fa-edit" title="Edit"></i>Opps</button></ td>
             <td><button class="btn text-danger" (click)="onDelete(plant)"><i class="fa fa-trash" title="Remove"></i>REMOVE</button></td>
         </tr>
     </tbody>
