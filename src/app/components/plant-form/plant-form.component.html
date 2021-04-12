@@ -1,53 +1,125 @@
-<div class="container">
-    <div class="row">
-        <div id="plant-form" class="col-md-3">
+<h1 class="display-5 text-center">Let's Plant Some Roots</h1>
+<div> </div>
+
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="plservice.formData.id">
+
+    <!-- name -->
+    <div class="form-group">
+        <input commonName="commonName" #commonName="ngModel" [(ngModel)]="plservice.formData.commonName"
+            class="form-control" placeholder="COMMON NAME" required>
+        <div *ngIf="commonName.invalid && commonName.touched" class="validation-error">Plant name is required.</div>
+    </div>
+
+    <!-- scientific name -->
+    <div class="form-group">
+        <input name="scientificName" #scientificName="ngModel" [(ngModel)]="plservice.formData.scientificName"
+            class="form-control" placeholder="SCIENTIFIC NAME">
+    </div>
+
+    <!-- light -->
+    <div class="form-row">
+        <div class="form-group col-md-6" required>
+            <select name="light" #light="ngModel" [(ngModel)]="plservice.formData.light" class="form-control">
+                <option value="" disabled selected>LIGHT LEVEL</option>
+                <option value="DIRECT">DIRECT</option>
+                <option value="BRIGHT INDIRECT">BRIGHT INDIRECT</option>
+                <option value="MEDIUM LIGHT">MEDIUM LIGHT</option>
+                <option value="LOW LIGHT">LOWLIGHT</option>
+            </select>
+            <div *ngIf="light.invalid && light.touched" class="validation-error">Light level is required.</div>
+        </div>
+
+        <!-- water -->
+        <div class="form-group  col-md-6 radio" required>
+            <input name="water" #water="ngModel" [(ngModel)]="plservice.formData.water" class="form-control">
+            <label>
+                <input type="radio" id="dry" name="water" value="dry">DRY ICON
+            </label><br>
+            <label>
+                <input type="radio" id="damp" name="water" value="damp">DAMP ICON
+            </label><br>
+            <label>
+                <input type="radio" id="wet" name="water" value="wet">WET ICON
+            </label>
+
+            <div *ngIf="water.invalid && water.touched" class="validation-error">Water level is required.</div>
+        </div>
+
+        <!-- date -->
+        <div class="form-group">
+            <label for="start">Last Watered:</label><br>
+
+            <input type="date" id="start" name="waterDate" value="YYY-MM-DD" min="2021-01-01" max="" #waterDate="ngModel" [(ngModel)]="plservice.formData.waterDate"
+                class="form-control" required>
+                <div *ngIf="waterDate.invalid && waterDate.touched" class="validation-error">Last water date is required.</div>
+        </div>
+
+        <!-- notes -->
+        <div class="form-group">
+            <input commonName="notes" #notes="ngModel" [(ngModel)]="plservice.formData.notes" class="form-control"
+                placeholder="NOTES">
+        </div>
+
+<!-- submit -->
+    </div>
+    <div class="form-group">
+        <button type="submit" [disabled]="form.invalid"
+            class="btn btn-lg btn-block btn btn-outline-success">Submit</button>
+    </div>
+</form>
+
+<!-- error message -->
+<div class="error" *ngIf="message">
+    <h5 class="text-success">{{ message }}</h5>
+</div>
+
+
+
+<!-- <div id="plant-form" class="col-md-3"></div>
             <h3>Let's Plant Some Roots</h3>
 
-            <form (ngSubmit)="onAddPlant()" #f="ngForm">
+            <form (submit)="onSubmit(form)" #f="ngForm">
 
-                <div class="plant-data" ngModelGroup="plantData" #plantData="ngModelGroup">
-                    <input type="text" placeholder="COMMON NAME" ngModel name="commonName" required><br>
-
-                    <input type="text" placeholder="SCIENTIFIC NAME" ngModel name="scientificName" required><br>
-
-                    <select id="light" ngModel required name="light">
-                        <option value="" disabled selected>LIGHT LEVEL</option>
-                        <option value="direct">DIRECT</option>
-                        <option value="brightIndirect">BRIGHT INDIRECT</option>
-                        <option value="mediumLight">MEDIUM LIGHT</option>
-                        <option value="lowLight">LOWLIGHT</option>
-                    </select><br>
-
-                    <!------>
-                    <div class='radio-box'>
-
-                        <div class="radio" required>
-                            <label>
-                                <input type="radio" id="dry" name="water" value="dry">DRY ICON
-                            </label><br>
-                            <label>
-                                <input type="radio" id="damp" name="water" value="damp">DAMP ICON
-                            </label><br>
-                            <label>
-                                <input type="radio" id="wet" name="water" value="wet">WET ICON
-                            </label>
-                        </div>
-
-                    </div>
-                    <!------>
-
-                    <label for="start">Last Watered:</label><br>
-
-                    <input type="date" id="start" name="waterDate" value="YYY-MM-DD" min="2020-01-01"
-                        max="" required>
-
-                    <input type="text" placeholder="NOTES" ngModel name="notes" ><br>
+                <div class="plant-data" ngModelGroup="plantData" #plantData="ngModelGroup"> 
 
 
-                    <p *ngIf="!plantData.valid && plantData.touched">Plant information is incomplete</p>
-                    <button class="btn btn-primary" [disabled]="!f.valid" type="submit">ADD TO JUNGLE</button>
+       <input type="text" placeholder="COMMON NAME" ngModel name="commonName" required><br>
 
-                </div>
-            </form>
+        <input type="text" placeholder="SCIENTIFIC NAME" ngModel name="scientificName" required><br> -->
+
+<!-- <select id="light" ngModel required name="light">
+            <option value="" disabled selected>LIGHT LEVEL</option>
+            <option value="direct">DIRECT</option>
+            <option value="brightIndirect">BRIGHT INDIRECT</option>
+            <option value="mediumLight">MEDIUM LIGHT</option>
+            <option value="lowLight">LOWLIGHT</option>
+        </select><br> 
+
+        
+        <div class='radio-box'>
+
+            <div class="radio" required>
+                <label>
+                    <input type="radio" id="dry" name="water" value="dry">DRY ICON
+                </label><br>
+                <label>
+                    <input type="radio" id="damp" name="water" value="damp">DAMP ICON
+                </label><br>
+                <label>
+                    <input type="radio" id="wet" name="water" value="wet">WET ICON
+                </label>
+            </div>
+
         </div>
-    </div>
+       
+
+        <label for="start">Last Watered:</label><br>
+
+        <input type="date" id="start" name="waterDate" value="YYY-MM-DD" min="2020-01-01" max="" required>
+
+        <input type="text" placeholder="NOTES" ngModel name="notes"><br>
+
+
+        <p *ngIf="!plantData.valid && plantData.touched">Plant information is incomplete</p>
+        <button class="btn btn-primary" [disabled]="!f.valid" type="submit">ADD TO JUNGLE</button> -->

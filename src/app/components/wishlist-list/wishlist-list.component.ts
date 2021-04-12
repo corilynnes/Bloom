@@ -39,7 +39,7 @@ export class WishlistListComponent implements OnInit {
  
   onDelete(wishlistPlant: WishListPlant) {
     this.fireStore.doc('users/'+ this.uid +'/wishlist/' + wishlistPlant.id).delete();
-    this.deleteMessage = 'Plant removed from wishlist!';
+    this.deleteMessage = wishlistPlant.name + ' has been removed from wishlist!';
   }
 
 }

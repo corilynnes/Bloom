@@ -1,33 +1,33 @@
-  
 <p>Look at you grow,</p>
-<p># plants and counting</p>
+<p>{{plantList.length}} plants and counting</p>
 <table class="table table-hover student-details-table-width">
-   
-    <th>NAME</th>
-    <th>SCIENTIFIC NAME</th>
-    <th>LIGHT</th>
-    <th>WATER</th>
-    <th>LAST WATER</th>
-    <th>NOTES</th>
-    
-    <th></th>
-    <!-- <th>Remove</th> -->
+    <thead align="center">
+        <th>NAME</th>
+        <th>SCIENTIFIC NAME</th>
+        <th>LIGHT</th>
+        <th>WATER</th>
+        <th>LAST WATER</th>
+        <th>NOTES</th>
 
-<tr>
-    <!-- <tr *ngFor="let plant of plantlist"> -->
-<td></td>
-        <!-- <td>{{plant.commonName}}</td>
-        <td>{{plant.scientificName}}</td>
-        <td>{{plant.light}}</td>
-        <td>{{plant.water}}</td>
-        <td>{{plant.notes}}</td>
-        <td>{{plant.waterDate}}</td> -->
-        <!-- <td><button class="btn text-warning" (click)="onEdit(plant)"><i class="fa fa-edit" title="Edit"></i>Opps</button></ td> -->
-        <!-- <td><button class="btn text-danger" (click)="onDelete(plant)"><i class="fa fa-trash" title="Remove"></i>I Got It</button></td> -->
-    </tr>
-
+        
+        <th>Remove</th>
+    </thead>
+    <tbody align="center">
+        <tr *ngFor="let plant of plantList">
+           
+            <td>{{plant.commonName | titlecase }}</td>
+            <td>{{plant.scientificName | titlecase }}</td>
+            <td>{{plant.light}}</td>
+            <td>{{plant.water}}</td>
+            
+            <td>{{plant.waterDate}}</td>
+            <td>{{plant.notes}}</td>
+            <!-- <td><button class="btn text-warning" (click)="onEdit(plant)"><i class="fa fa-edit" title="Edit"></i>Opps</button></ td> -->
+            <td><button class="btn text-danger" (click)="onDelete(plant)"><i class="fa fa-trash" title="Remove"></i>REMOVE</button></td>
+        </tr>
+    </tbody>
 </table>
 
-<!-- <div class="error" *ngIf="deleteMessage">
+<div class="error" *ngIf="deleteMessage">
 <h5 class="text-dark">{{ deleteMessage }}</h5>
-</div> -->
+</div>

@@ -71,16 +71,5 @@ export class WishlistComponent implements OnInit {
 }
  
  
-  //  onAddPlant() {
-   
-  //    const commonName = this.plantList.value.plantData.commonName;
-     
-  //   this.userWishlist.push(commonName);
 
-
-  //   this.plantList.reset();
-  //   console.log (this.userWishlist);
-  //  }
- 
- 
  
