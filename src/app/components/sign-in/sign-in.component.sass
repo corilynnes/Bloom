@@ -1,58 +1,70 @@
+$lightpurple: #C1B2DB
+$lightgreen:#D9D7C1
+$darkgreen:#8C8A6F
+$darkpurple:#6C618C    
+$fontcolor: rgb(92, 92, 92)
+$formbordercolor:rgba(0, 0, 0, 0.02)
+$formfocusbordercolor:rgba(0, 0, 0, 0.18) 
+$formbackground:rgba(136, 126, 126, 0.04)
+$formfontcolor: rgb(38, 50, 56)
+
 .displayTable
-   background-color: #D9D7C1
+   background-color: $lightgreen
    display: flex
    justify-content: center
    
-
+h1
+    text-align: center
+    margin-top: 5em
+    color:$darkgreen
 
 .authBlock
     display: flex
     background-color: white
     height: 20em
-    width:30em
+    width:20em
     justify-content: center
-    margin: 10em
+    margin: 0em 10em 10em 10em
     align-items: center
-   
     border-radius: 1em
 
 .container
     display: flex
     justify-content: center
-   
-
+.formGroup
+    display: flex
+    justify-content: center
 
 
 .formControl
     // width: 50%
-    color: rgb(38, 50, 56)
+    color:$formfontcolor
     font-weight: 700
     font-size: 14px
     letter-spacing: 1px
-    background: rgba(136, 126, 126, 0.04)
+    background: $formbackground
     padding: 10px 20px
     border: none
     border-radius: 20px
     outline: none
     box-sizing: border-box
-    border: 2px solid rgba(0, 0, 0, 0.02)
+    border: 2px solid $formbordercolor
     // margin-bottom: 50px
     // margin-left: 46px
     text-align: center
     margin-bottom: 15px
     &:focus
-        border: 2px solid rgba(0, 0, 0, 0.18) 
+        border: 2px solid $formfocusbordercolor
 
 .forgotPassword
     &:hover
-        color: #C1B2DB
+        color: $lightpurple
 .btn
     color: white
-    background-color: #cbdcbd
+    background-color: $darkpurple
     opacity: 1
     border-radius: 0%
     border-radius: 5em
-   
     border: 0
     padding-left: 40px
     padding-right: 40px
@@ -66,13 +78,10 @@
         opacity:0.6
 
 
-
-
 h3, .forgotPassword, .redirectToLogin
     text-align: center
+    color:$fontcolor
 
-// h3 
-//     padding-top: .5em
     
 .redirectToLogin
      padding-bottom:2em
@@ -80,4 +89,4 @@ h3, .forgotPassword, .redirectToLogin
 .redirect
    
     &:hover
-        color: #C1B2DB
+        color: $lightpurple
