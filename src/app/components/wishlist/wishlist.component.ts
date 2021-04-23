@@ -57,7 +57,7 @@ export class WishlistComponent implements OnInit {
     if (form.value.id == null) {
       
       this.fireStore.collection('users/'+ this.uid +'/wishlist').add(wishlistData);
-      this.message = 'You wishlist is successfully saved!';
+      this.message = 'Your wishlist was successfully saved!';
     } else {
       // Does the update operation for the selected plant.
       // The 'wishlistData' object has the updated details of the plant.
