@@ -33,9 +33,9 @@ export class WishlistListComponent implements OnInit {
     });
   }
  
-  // onEdit(wishlistPlant: WishListPlant) {
-  //   this.service.formData = Object.assign({}, wishlistPlant);
-  // }
+  onEdit(wishlistPlant: WishListPlant) {
+    this.service.formData = Object.assign({}, wishlistPlant);
+  }
  
   onDelete(wishlistPlant: WishListPlant) {
     this.fireStore.doc('users/'+ this.uid +'/wishlist/' + wishlistPlant.id).delete();

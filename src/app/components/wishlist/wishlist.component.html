@@ -1,55 +1,31 @@
-<!-- <div class="container">
-
-    <div id="plant-form" class="col-md-3">
-        <h3>Get In Loser, We're going Plant Shopping</h3>
-
-        <form (ngSubmit)="onAddPlant()" #f="ngForm">
-
-            <div class="plant-data" ngModelGroup="plantData" #plantData="ngModelGroup">
-                <input type="text" placeholder="COMMON NAME" ngModel name="commonName" required><br>
-
-
-                <p *ngIf="!plantData.valid && plantData.touched">Plant information is incomplete</p>
-                <button class="btn btn-primary" [disabled]="!f.valid" type="submit">NEED</button>
-
-            </div>
-        </form>
-        <table class="librarian-table" style="width:100%">
-            <tr>
-
-                <th>You're Coming Home With Me</th>
-            </tr>
-            <tr *ngFor="let plants of userWishlist">
-                <td class="title">{{plants}}</td>
-
-            </tr>
-
-        </table>
-    </div> -->
 <div class="container">
     <h3 class="">Get In Loser, <br>We're going Plant Shopping</h3>
-<div class="form">
-    <div class="form-inline">
-        <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <div class="form">
+        <div class="form-inline">
+            <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
 
-            <input type="hidden" name="id" #id="ngModel" [(ngModel)]="wlservice.formData.id">
-          
-            <div class="form-group">
-                <input name="name" #name="ngModel" [(ngModel)]="wlservice.formData.name" class="formControl"
-                    placeholder="Plant Name" required>
-                <div *ngIf="name.invalid && name.touched" class="validation-error">Plant name is required.</div>
-            </div>
-            
+                <input type="hidden" name="id" #id="ngModel" [(ngModel)]="wlservice.formData.id">
+               
+                <div class="input-submit">
+                    <div class="form-group">
+                        <input name="name" #name="ngModel" [(ngModel)]="wlservice.formData.name" class="formControl"
+                            placeholder="Plant Name" required>
+                        <div *ngIf="name.invalid && name.touched" class="validation-error">Plant name is required.</div>
+                    </div>
 
-            <div class="form-group">
-                <button type="submit" [disabled]="form.invalid"
-                    class="btn btn-lg btn-block btn btn-outline-success">Submit</button>
-            </div>
-        </form>
+
+                    <div class="form-group">
+                        <button type="submit" [disabled]="form.invalid"
+                            class="btn btn-lg btn-block btn btn-outline-success">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
     <div class="error" *ngIf="message">
         <h5 class="text-success">{{ message }}</h5>
     </div>
 </div>
-<app-wishlist-list></app-wishlist-list>
+<div class="list">
+    <app-wishlist-list></app-wishlist-list>
+</div>
