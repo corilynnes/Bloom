@@ -1,15 +1,15 @@
-<nav class="navbar navbar-default">
+<nav class="navbar">
    <div class="container-fluid">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" (click)="collapsed = !collapsed">
           <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
         </button>
-        <p class="navbar-brand">BLOOM</p>
+        <p class="navbar">bloom</p>
       </div>
       <div class="navbar-collapse navbar-right" [class.collapse]="collapsed" (window:resize)="collapsed = true">
         <ul class="nav navbar-nav">
             <li class="dropdown" appDropdown>
-                <a class="dropdown-toggle" role="button"> &#9776;</a>
+                <a class="dropdown-toggle" role="button">&#9776;</a>
                 <ul class="dropdown-menu">
                     <li><a [routerLink]="['/dashboard']">Plants</a></li>
                     <li><a [routerLink]="['/wishlist']">Wishlist</a></li>

@@ -1,33 +1,39 @@
-<p>Look at you grow,</p>
-<p>{{plantList.length}} plants and counting</p>
-<table class="table table-hover student-details-table-width">
-    <thead align="center">
-        <th>NAME</th>
-        <th>SCIENTIFIC NAME</th>
-        <th>LIGHT</th>
-        <th>WATER</th>
-        <th>LAST WATER</th>
-        <th>NOTES</th>
+<div class="container">
+    <h2>Look at you grow, <span class="plant-number">{{plantList.length}}</span> plants and counting</h2>
+    <div class="table-container">
+        <table class="table ">
+            <thead align="center">
+                <th>NAME</th>
+                <th>SCIENTIFIC NAME</th>
+                <th>LIGHT</th>
+                <th>WATER</th>
+                <th>LAST WATER</th>
+                <th>NOTES</th>
 
-        <th>EDIT</th>
-        <th>Remove</th>
-    </thead>
-    <tbody align="center">
-        <tr *ngFor="let plant of plantList">
-           
-            <td>{{plant.commonName | titlecase }}</td>
-            <td>{{plant.scientificName | titlecase }}</td>
-            <td>{{plant.light}}</td>
-            <td>{{plant.water}}</td>
-            
-            <td>{{plant.waterDate}}</td>
-            <td>{{plant.notes}}</td>
-            <td><button class="btn text-warning" (click)="onEdit(plant)"><i class="fa fa-edit" title="Edit"></i>Opps</button></ td>
-            <td><button class="btn text-danger" (click)="onDelete(plant)"><i class="fa fa-trash" title="Remove"></i>REMOVE</button></td>
-        </tr>
-    </tbody>
-</table>
+                <th></th>
+                <!-- <th></th> -->
+            </thead>
+            <tbody align="center">
+                <tr *ngFor="let plant of plantList">
 
-<div class="error" *ngIf="deleteMessage">
-<h5 class="text-dark">{{ deleteMessage }}</h5>
+                    <td class="com-name">{{plant.commonName | titlecase }}</td>
+                    <td class="sci-name">{{plant.scientificName | titlecase }}</td>
+                    <td class="light">{{plant.light}}</td>
+                    <td class="water">{{plant.water}}</td>
+
+                    <td class="date">{{plant.waterDate}}</td>
+                    <td class="notes">{{plant.notes}}</td>
+                    <td class="edit"><button class="btn text-warning" (click)="onEdit(plant)"><i class="fa fa-edit"
+                                title="Edit"></i> EDIT </button>
+                                <button class="btn text-danger" (click)="onDelete(plant)"><i class="fa fa-trash"
+                                    title="Remove"></i>REMOVE</button></ td>
+                    <!-- <td class="delete"><button class="btn text-danger" (click)="onDelete(plant)"><i class="fa fa-trash"
+                                title="Remove"></i>REMOVE</button></td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="error" *ngIf="deleteMessage">
+        <h5 class="text-dark">{{ deleteMessage | titlecase }}</h5>
+    </div>
 </div>
