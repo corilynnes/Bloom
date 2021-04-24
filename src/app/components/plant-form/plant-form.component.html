@@ -42,23 +42,47 @@
                 </select>
             </div>
         </div>
-
+        <!-- temp -->
+        <div class="form-row">
+            <div class="form-group col-md-6" required>
+                <select name="temp" #temp="ngModel" [(ngModel)]="plservice.formData.temp" class="form-control">
+                    <option value="" disabled selected>LOWEST TEMP</option>
+                    <option value="40">40<span>&#176;</span>F</option>
+                    <option value="50">50<span>&#176;</span>F</option>
+                    <option value="60">60<span>&#176;</span>F</option>
+                    <option value="70">70<span>&#176;</span>F</option>
+                </select>
+            </div>
+        </div>
+         <!-- humidity -->
+         <div class="form-row">
+            <div class="form-group col-md-6" required>
+                <select name="humidity" #humidity="ngModel" [(ngModel)]="plservice.formData.humidity" class="form-control">
+                    <option value="" disabled selected>HUMIDITY</option>
+                    <option value="LESS THAN 50%">LESS THAN 50%</option>
+                    <option value="50%-60%">50%-60%</option>
+                    <option value="60%-70%">60%-70%</option>
+                    <option value="70%-80%">70%-80%</option>
+                    <option value="80%+">80%+</option>
+                </select>
+            </div>
+        </div>
         <!-- date -->
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="start">Last Watered:</label><br>
 
             <input type="date" id="start" name="waterDate" value="YYY-MM-DD" min="2021-01-01" max=""
                 #waterDate="ngModel" [(ngModel)]="plservice.formData.waterDate" class="form-control" required>
-            <!-- <div *ngIf="waterDate.invalid && waterDate.touched" class="validation-error">Last water date is required.</div> -->
-        </div>
+             <div *ngIf="waterDate.invalid && waterDate.touched" class="validation-error">Last water date is required.</div> -->
+    <!-- </div> -->
 
-        <!-- notes -->
-        <div class="form-group">
+    <!-- notes -->
+    <!-- <div class="form-group">
             <input commonName="notes" #notes="ngModel" [(ngModel)]="plservice.formData.notes" class="form-control"
                 placeholder="NOTES">
-        </div>
+        </div> -->
 
-        <!-- submit -->
+    <!-- submit -->
     </div>
     <div class="form-group">
         <button type="submit" [disabled]="form.invalid"

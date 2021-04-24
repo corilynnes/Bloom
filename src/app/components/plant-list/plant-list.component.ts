@@ -28,12 +28,12 @@ export class PlantListComponent implements OnInit {
     });
   }
  
-  onEdit(plant: PlantProfile) {
-    this.plservice.formData = Object.assign({}, plant);
-  }
+  // onEdit(plant: PlantProfile) {
+  //   this.plservice.formData = Object.assign({}, plant);
+  // }
  
   onDelete(plant: PlantProfile) {
-    this.fireStore.doc('users/'+ this.uid +'/plantList/' +plant.id).delete();
+    this.fireStore.doc('users/'+ this.uid +'/plantlist/' +plant.id).delete();
     this.deleteMessage = plant.commonName + ' has been removed from your list';
   }
 

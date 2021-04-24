@@ -7,8 +7,8 @@
                 <th>SCIENTIFIC NAME</th>
                 <th>LIGHT</th>
                 <th>WATER</th>
-                <th>LAST WATER</th>
-                <th>NOTES</th>
+                <th>LOWEST TEMP</th>
+                <th>HUMIDITY</th>
 
                 <th></th>
                 <!-- <th></th> -->
@@ -21,14 +21,14 @@
                     <td class="light">{{plant.light}}</td>
                     <td class="water">{{plant.water}}</td>
 
-                    <td class="date">{{plant.waterDate}}</td>
-                    <td class="notes">{{plant.notes}}</td>
-                    <td class="edit"><button class="btn text-warning" (click)="onEdit(plant)"><i class="fa fa-edit"
-                                title="Edit"></i> EDIT </button>
-                                <button class="btn text-danger" (click)="onDelete(plant)"><i class="fa fa-trash"
-                                    title="Remove"></i>REMOVE</button></ td>
-                    <!-- <td class="delete"><button class="btn text-danger" (click)="onDelete(plant)"><i class="fa fa-trash"
-                                title="Remove"></i>REMOVE</button></td> -->
+                    <td class="temp">{{plant.temp}}<span>&#176;</span>F</td>
+                    <td class="humidity">{{plant.humidity}}</td>
+                    <td class="remove">
+                        <button class="btn text-danger" (click)="onDelete(plant)"><i class="fa fa-trash"
+                                title="Remove"></i>REMOVE</button>
+                        <!-- <button class="btn text-warning" (click)="onEdit(plant)"><i class="fa fa-edit" title="Edit"></i> EDIT </button> -->
+                    </td>
+
                 </tr>
             </tbody>
         </table>

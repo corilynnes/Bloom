@@ -47,8 +47,8 @@ export class PlantFormComponent implements OnInit {
       scientificName: '',
       light: '',
       water: '',
-      notes: '',
-      waterDate: ''
+      temp: '',
+      humidity: ''
     }
   }
 
