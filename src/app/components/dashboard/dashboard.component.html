@@ -1,28 +1,28 @@
- 
- <div class="container-fluid">
-    <div class="row">
-  
-      <main role="main" class="">
-        <div class="inner-adjust">
-  
-         
-          <!-- Show user data when logged in -->
-          <div class="row" *ngIf="authService.userData as user">
+<div class="container">
+  <div class="row">
+
+    <!-- <main role="main" class=""> -->
+      
+        <!-- Show user data when logged in -->
+        <div class="col-xs-12" *ngIf="authService.userData as user">
+
+          <!-- <div class="media"> -->
+
             <div class="">
-              <div class="media">
-               
-                <div class="media-body">
-                  <h1>Hello <strong>{{user.displayName | titlecase}}!</strong></h1>             
-                  <app-plant-list></app-plant-list>
-                 <app-plant-form></app-plant-form>
-                 
-                </div>
-              </div>
+              <h1>Hello <strong>{{user.displayName | titlecase}}!</strong></h1>
+
+              <h2>Look at you grow, <span class="plant-number">{{plantList.length}}</span> plants and counting</h2>
+              <div class="col-xs-12"> <app-plant-form></app-plant-form></div>
+              <div class="col-xs-12"> <app-plant-list></app-plant-list></div>
+
+
             </div>
-          </div>
-  
+          <!-- </div> -->
+
         </div>
-      </main>
-  
-    </div>
+
+      
+    <!-- </main> -->
+
   </div>
+</div>
