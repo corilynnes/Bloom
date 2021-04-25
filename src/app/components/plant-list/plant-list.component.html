@@ -1,39 +1,47 @@
 <div class="container">
-    <h2>Look at you grow, <span class="plant-number">{{plantList.length}}</span> plants and counting</h2>
-    <div class="table-container">
-        <table class="table ">
-            <thead align="center">
-                <th>NAME</th>
-                <th>SCIENTIFIC NAME</th>
-                <th>LIGHT</th>
-                <th>WATER</th>
-                <th>LOWEST TEMP</th>
-                <th>HUMIDITY</th>
+    <div class="row">
 
-                <th></th>
-                <!-- <th></th> -->
-            </thead>
-            <tbody align="center">
-                <tr *ngFor="let plant of plantList">
+        <!-- <h2 class="col-xs-12">Look at you grow, <span class="plant-number">{{plantList.length}}</span> plants and counting</h2> -->
+       
+        <div class="table-container">
 
-                    <td class="com-name">{{plant.commonName | titlecase }}</td>
-                    <td class="sci-name">{{plant.scientificName | titlecase }}</td>
-                    <td class="light">{{plant.light}}</td>
-                    <td class="water">{{plant.water}}</td>
+            <table class="table ">
+                <thead align="center">
+                    <th>NAME</th>
+                    <th>SCIENTIFIC NAME</th>
+                    <th>LIGHT</th>
+                    <th>WATER</th>
+                    <th>LOWEST TEMP</th>
+                    <th>HUMIDITY</th>
 
-                    <td class="temp">{{plant.temp}}<span>&#176;</span>F</td>
-                    <td class="humidity">{{plant.humidity}}</td>
-                    <td class="remove">
-                        <button class="btn text-danger" (click)="onDelete(plant)"><i class="fa fa-trash"
-                                title="Remove"></i>REMOVE</button>
-                        <!-- <button class="btn text-warning" (click)="onEdit(plant)"><i class="fa fa-edit" title="Edit"></i> EDIT </button> -->
-                    </td>
+                    <th></th>
+                    <!-- <th></th> -->
+                </thead>
 
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="error" *ngIf="deleteMessage">
-        <h5 class="text-dark">{{ deleteMessage | titlecase }}</h5>
+                <tbody align="center">
+                    <tr *ngFor="let plant of plantList">
+
+                        <td class="com-name">{{plant.commonName | titlecase }}</td>
+                        <td class="sci-name">{{plant.scientificName | titlecase }}</td>
+                        <td class="light">{{plant.light}}</td>
+                        <td class="water">{{plant.water}}</td>
+
+                        <td class="temp">{{plant.temp}}<span>&#176;</span>F</td>
+                        <td class="humidity">{{plant.humidity}}</td>
+                        <td class="remove">
+                            <button class="btn text-danger" (click)="onDelete(plant)"><i class="fa fa-trash"
+                                    title="Remove"></i>REMOVE</button>
+                            <!-- <button class="btn text-warning" (click)="onEdit(plant)"><i class="fa fa-edit" title="Edit"></i> EDIT </button> -->
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="error" *ngIf="deleteMessage">
+            <h5 class="text-dark">{{ deleteMessage | titlecase }}</h5>
+        </div>
+
     </div>
 </div>

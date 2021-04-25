@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <div class="row no-gutters">
         <h1 class="col-xs-12">Let's Plant Some Roots</h1>
         <div> </div>
 
@@ -7,7 +7,7 @@
             <input type="hidden" name="id" #id="ngModel" [(ngModel)]="plservice.formData.id">
 
             <!-- name -->
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6 ">
                 <input name="commonName" #commonName="ngModel" [(ngModel)]="plservice.formData.commonName"
                     class="form-control" placeholder="COMMON NAME" required>
                 <!-- <div *ngIf="commonName.invalid && commonName.touched" class="validation-error">Plant name is required.</div> -->
@@ -39,7 +39,7 @@
                     <option value="" disabled selected>WATER LEVEL</option>
                     <option value="DRY">DRY</option>
                     <option value="DRY BETWEEN WATERINGS">DRY BETWEEN WATERINGS</option>
-                    <option value="MOIST">MOIST</option>
+                    <option value="MOIST">KEEP MOIST</option>
                     <option value="WET">WET</option>
                 </select>
             </div>

@@ -1,0 +1,89 @@
+$lightpurple: #C1B2DB
+$lightgreen:#D9D7C1
+$darkgreen:#8C8A6F
+$darkpurple:#6C618C    
+$fontcolor: rgb(92, 92, 92)
+$formbordercolor:rgba(0, 0, 0, 0.02)
+$formfocusbordercolor:rgba(0, 0, 0, 0.18) 
+$formbackground:rgba(136, 126, 126, 0.04)
+$formfontcolor: rgb(38, 50, 56)
+
+.displayTable
+   background-color: $lightgreen
+   display: flex
+   justify-content: center
+   padding-bottom: 48px
+
+h1
+    text-align: center
+    margin-top: 1em
+    color:$darkgreen
+
+
+.formGroup
+    display: flex
+    justify-content: center
+
+
+.formControl
+    // width: 50%
+    color:$formfontcolor
+    font-weight: 700
+    font-size: 14px
+    letter-spacing: 1px
+    background: $formbackground
+    padding: 5px 20px
+    border: none
+    border-radius: 20px
+    outline: none
+    box-sizing: border-box
+    border: 2px solid $formbordercolor
+    // margin-bottom: 50px
+    // margin-left: 46px
+    text-align: center
+    margin-bottom: 7px
+    &:focus
+        border: 2px solid $formfocusbordercolor
+
+.btn
+    color: white
+    background-color: $darkpurple
+    opacity: 1
+    border-radius: 0%
+    border-radius: 5em
+    border: 0
+    padding-left: 40px
+    padding-right: 40px
+    padding-bottom: 10px
+    padding-top: 10px
+    margin-bottom:2px
+    font-size: 13px
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04)
+    
+    &:hover
+        opacity:0.6
+
+.authBlock
+    display: flex
+    background-color: white
+    height: 20em
+    width:20em
+    justify-content: center
+    margin: 0em 10em 10em 10em
+    align-items: center
+    border-radius: 1em
+    padding: 0px 30px 0px 30px
+
+
+h3, .redirectToLogin
+    text-align: center
+    color:$fontcolor
+
+    
+.redirectToLogin
+     padding-bottom:2em
+
+.redirect
+   
+    &:hover
+        color: $lightpurple

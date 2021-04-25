@@ -8,7 +8,8 @@ import { PlantlistService } from 'src/app/Shared/services/plantlist.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.sass']
+  styleUrls: ['./dashboard.component.sass'],
+  
 })
 export class DashboardComponent implements OnInit {
   uid: any;
